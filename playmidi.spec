@@ -8,8 +8,6 @@ Version:	2.4
 Release:	11
 License:	GPL
 Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(pl):	Aplikacje/D¼wiêk
 Source0:	ftp://ftp.linpeople.org/pub/People/nathan/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-hertz.patch
@@ -57,8 +55,6 @@ Summary(de):	X-Windows-Schnittstelle für den MIDI-Soundplayer
 Summary(pl):	Odtwarzacz plików MIDI dla systemu X Window
 Summary(tr):	MIDI ses çalýcý için X arayüzü
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Requires:	%{name} = %{version}
 
 %description X11
@@ -88,8 +84,6 @@ MIDI ses dosyalarýný çalan playmidi uygulamasýnýn X arayüzü.
 Summary:	An SVGAlib based MIDI sound file player
 Summary(pl):	Odtwarzacz plików MIDI wykorzystuj±cy SVGAlib
 Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(pl):	Aplikacje/D¼wiêk
 Requires:	%{name} = %{version}
 
 %description svga
