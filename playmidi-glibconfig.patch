@@ -1,0 +1,12 @@
+diff -urN playmidi-2.4.orig/Makefile playmidi-2.4/Makefile
+--- playmidi-2.4.orig/Makefile	Sun Jan 30 14:10:44 2000
++++ playmidi-2.4/Makefile	Sun Jan 30 14:11:23 2000
+@@ -43,7 +43,7 @@
+ INSTALL = install -s
+ 
+ # if you are using the GUS Ultra driver module, add -DULTRA_DRIVER
+-CFLAGS	= $(RPM_OPT_FLAGS) $(INCAWE)
++CFLAGS	= $(RPM_OPT_FLAGS) $(INCAWE) `glib-config --cflags`
+ LDFLAGS =
+ 
+ OBJECTS = playmidi.o readmidi.o playevents.o \
