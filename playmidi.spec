@@ -15,7 +15,6 @@ Patch1:		playmidi-make.patch
 Patch2:		playmidi-midimap.patch
 Patch3:		playmidi-glibconfig.patch
 BuildRequires:	ncurses-devel >= 5.0
-BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel
 %ifarch %ix86
 BuildRequires:	svgalib-devel
