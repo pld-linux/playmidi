@@ -108,11 +108,11 @@ rm awe_voice.h
 #PATH=.:$PATH
 
 %ifarch %ix86
-make OPT_FLAGS="$RPM_OPT_FLAGS" playmidi splaymidi xplaymidi <<EOF
+%{__make} OPT_FLAGS="$RPM_OPT_FLAGS" playmidi splaymidi xplaymidi <<EOF
 2
 EOF
 %else
-make OPT_FLAGS="$RPM_OPT_FLAGS" playmidi xplaymidi <<EOF
+%{__make} OPT_FLAGS="$RPM_OPT_FLAGS" playmidi xplaymidi <<EOF
 2
 EOF
 %endif
