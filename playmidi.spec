@@ -5,12 +5,13 @@ Summary(pl):	Odtwarzacz plików MIDI
 Summary(tr):	FM, GUS ve MIDI aygýtlarý üzerindeki midi dosyalarýný çalar
 Name:		playmidi
 Version:	2.4
-Release:	10
+Release:	11
 License:	GPL
 Group:		Applications/Sound
 Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D¼wiêk
 Source0:	ftp://ftp.linpeople.org/pub/People/nathan/%{name}-%{version}.tar.gz
+Source1:	%{name}.desktop
 Patch0:		%{name}-hertz.patch
 Patch1:		%{name}-make.patch
 Patch2:		%{name}-midimap.patch
@@ -125,24 +126,24 @@ EOF
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/{bin,lib/X11/app-defaults}}
+%{__install} -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1,%{_sysconfdir}} \
+	$RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/{bin,lib/X11/app-defaults}} \
+	$RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
-install playmidi $RPM_BUILD_ROOT%{_bindir}
-install xplaymidi $RPM_BUILD_ROOT%{_xbindir}
-install XPlaymidi.ad $RPM_BUILD_ROOT%{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
+%{__install} playmidi $RPM_BUILD_ROOT%{_bindir}
+%{__install} xplaymidi $RPM_BUILD_ROOT%{_xbindir}
+%{__install} XPlaymidi.ad $RPM_BUILD_ROOT%{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
+%{__install} std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
+%{__install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 %ifarch %ix86
-install splaymidi $RPM_BUILD_ROOT%{_bindir}
+%{__install} splaymidi $RPM_BUILD_ROOT%{_bindir}
 %endif
 
-install playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%{__install} playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
 echo ".so playmidi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/splaymidi.1
 
 gzip -9nf BUGS QuickStart
-
-install $RPM_BUILD_ROOT%{_sysconfdir}
-install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -162,6 +163,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %config %{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
 %attr(755,root,root) %{_xbindir}/xplaymidi
+%{_applnkdir}/Multimedia/*
 
 %ifarch %ix86
 %files svga
