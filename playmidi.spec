@@ -5,9 +5,6 @@
 %bcond_with	gtk	# build gtkplaymidi program (not ready for GTK+ > 1.1)
 %bcond_without	svga	# don't build splaymidi program
 #
-%ifnarch %{ix86} alpha
-%undefine	with_svga
-%endif
 Summary:	A MIDI sound file player
 Summary(de):	Zum Abspielen von midi-Dateien auf FM-, GUS- und MIDI-Geräten
 Summary(fr):	Joue des fichiers midi sur des périphériques FM, GUS et MIDI
