@@ -152,7 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %config %{_sysconfdir}/std.sb
 %config %{_sysconfdir}/drums.o3
 %config %{_sysconfdir}/drums.sb
-%{_mandir}/man1/*
+%{_mandir}/man1/palymidi.1*
 
 %files X11
 %defattr(644,root,root,755)
@@ -164,5 +164,6 @@ rm -rf $RPM_BUILD_ROOT
 %files svga
 %defattr(644,root,root,755)
 %attr(4755,root,root) %{_bindir}/splaymidi
+%{_mandir}/man1/spalymidi.1*
 
 %endif
