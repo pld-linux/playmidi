@@ -16,7 +16,7 @@ Patch2:		%{name}-midimap.patch
 Patch3:		%{name}-glibconfig.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gtk+-devel
-%ifarch %ix86
+%ifarch %{ix86} alpha
 BuildRequires:	svgalib-devel
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -108,7 +108,7 @@ rm -f awe_voice.h
 %build
 #PATH=.:$PATH
 
-%ifarch %ix86
+%ifarch %{ix86} alpha
 %{__make} OPT_FLAGS="%{rpmcflags}" playmidi splaymidi xplaymidi <<EOF
 2
 EOF
@@ -130,7 +130,7 @@ install XPlaymidi.ad $RPM_BUILD_ROOT%{_prefix}/X11R6/lib/X11/app-defaults/XPlaym
 install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
-%ifarch %ix86
+%ifarch %{ix86} alpha
 install splaymidi $RPM_BUILD_ROOT%{_bindir}
 %endif
 
@@ -159,7 +159,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_xbindir}/xplaymidi
 %{_applnkdir}/Multimedia/*
 
-%ifarch %ix86
+%ifarch %{ix86} alpha
 %files svga
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/splaymidi
