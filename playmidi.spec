@@ -5,11 +5,10 @@ Summary(pl):	Odtwarzacz plików MIDI
 Summary(tr):	FM, GUS ve MIDI aygýtlarý üzerindeki midi dosyalarýný çalar
 Name:		playmidi
 Version:	2.4
-Release:	11
+Release:	12
 License:	GPL
 Group:		Applications/Sound
 Source0:	ftp://ftp.linpeople.org/pub/People/nathan/%{name}-%{version}.tar.gz
-Source1:	%{name}.desktop
 Patch0:		%{name}-hertz.patch
 Patch1:		%{name}-make.patch
 Patch2:		%{name}-midimap.patch
@@ -23,6 +22,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/midi
 %define		_xbindir	/usr/X11R6/bin
+%define		_appdefdir	/usr/X11R6/lib/X11/app-defaults
 
 %description
 Playmidi plays MIDI (Musicial Instrument Digital Interface) sound
@@ -120,15 +120,13 @@ EOF
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1,%{_sysconfdir}} \
-	$RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/{bin,lib/X11/app-defaults}} \
-	$RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1} \
+	$RPM_BUILD_ROOT{%{_bindir},%{_xbindir},%{_appdefdir}}
 
 install playmidi $RPM_BUILD_ROOT%{_bindir}
 install xplaymidi $RPM_BUILD_ROOT%{_xbindir}
-install XPlaymidi.ad $RPM_BUILD_ROOT%{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
+install XPlaymidi.ad $RPM_BUILD_ROOT%{_appdefdir}/XPlaymidi
 install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 %ifarch %{ix86} alpha
 install splaymidi $RPM_BUILD_ROOT%{_bindir}
@@ -136,7 +134,6 @@ install splaymidi $RPM_BUILD_ROOT%{_bindir}
 
 install playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
 echo ".so playmidi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/splaymidi.1
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -154,9 +151,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files X11
 %defattr(644,root,root,755)
-%config %{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
 %attr(755,root,root) %{_xbindir}/xplaymidi
-%{_applnkdir}/Multimedia/*
+%config %{_appdefdir}/XPlaymidi
 
 %ifarch %{ix86} alpha
 %files svga
