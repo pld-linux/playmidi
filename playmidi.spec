@@ -120,21 +120,21 @@ EOF
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__install} -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1,%{_sysconfdir}} \
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1,%{_sysconfdir}} \
 	$RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/{bin,lib/X11/app-defaults}} \
 	$RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
-%{__install} playmidi $RPM_BUILD_ROOT%{_bindir}
-%{__install} xplaymidi $RPM_BUILD_ROOT%{_xbindir}
-%{__install} XPlaymidi.ad $RPM_BUILD_ROOT%{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
-%{__install} std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
-%{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+install playmidi $RPM_BUILD_ROOT%{_bindir}
+install xplaymidi $RPM_BUILD_ROOT%{_xbindir}
+install XPlaymidi.ad $RPM_BUILD_ROOT%{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
+install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 %ifarch %ix86
-%{__install} splaymidi $RPM_BUILD_ROOT%{_bindir}
+install splaymidi $RPM_BUILD_ROOT%{_bindir}
 %endif
 
-%{__install} playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
 echo ".so playmidi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/splaymidi.1
 
 gzip -9nf BUGS QuickStart
