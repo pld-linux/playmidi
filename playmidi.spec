@@ -9,6 +9,7 @@ Release:	12
 License:	GPL
 Group:		Applications/Sound
 Source0:	ftp://ftp.linpeople.org/pub/People/nathan/%{name}-%{version}.tar.gz
+# Source0-md5: ce27bfbc4e122f103bf3d2fe8d253011
 Patch0:		%{name}-hertz.patch
 Patch1:		%{name}-make.patch
 Patch2:		%{name}-midimap.patch
