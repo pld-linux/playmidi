@@ -2,6 +2,6 @@
 Name=PlayMidi
 Comment=Play MIDI Files
 Comment[pl]=Odtwarzacz plików MIDI
-Exec=playmidi
+Exec=xplaymidi
 Terminal=0
 Type=Application
