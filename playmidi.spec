@@ -54,7 +54,7 @@ Summary:	An X Window System based MIDI sound file player
 Summary(de):	X-Windows-Schnittstelle für den MIDI-Soundplayer
 Summary(pl):	Odtwarzacz plików MIDI dla systemu X Window
 Summary(tr):	MIDI ses çalýcý için X arayüzü
-Group:		X11/Applications/Multimedia
+Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}
 
 %description X11
