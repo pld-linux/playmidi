@@ -164,6 +164,6 @@ rm -rf $RPM_BUILD_ROOT
 %files svga
 %defattr(644,root,root,755)
 %attr(4755,root,root) %{_bindir}/splaymidi
-%{_mandir}/man1/spalymidi.1*
+%{_mandir}/man1/splaymidi.1*
 
 %endif
