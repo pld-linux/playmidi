@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=PlayMidi
+Comment=Play MIDI Files
+Comment[pl]=Odtwarzacz plików MIDI
+Exec=playmidi
+Terminal=0
+Type=Application
