@@ -1,7 +1,8 @@
 [Desktop Entry]
 Name=PlayMidi
 Comment=Play MIDI Files
-Comment[pl]=Odtwarzacz plików MIDI
+Comment[pl]=Odtwarzacz plikÃ³w MIDI
 Exec=xplaymidi
 Terminal=0
 Type=Application
+# vi: encoding=utf-8
