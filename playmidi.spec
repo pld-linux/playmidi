@@ -63,21 +63,21 @@ Playmidi-X11 provides an X Window System interface for playing MIDI
 card synthesizer. Install playmidi-X11 if you want to use an X
 interface to play MIDI sound files using your computer's sound card.
 
-%description -l de X11
+%description X11 -l de
 X-Programm zum Abspielen von MIDI-Sounddateien über einen Soundkarten-
 Synthesizer. Enthält einfache Schlagzeug-Samples für einfache
 FM-Synthesizers.
 
-%description -l fr X11
+%description X11 -l fr
 Programme X pour jouer des fichiers MIDI par le synthétiseur d'une
 carte son. Il contient des exemples de batterie de base pour les
 synthétiseurs FM simples.
 
-%description -l pl X11
+%description X11 -l pl
 Playmidi-X11 dostarcza interfejs opary o system X Window umo¿liwiaj±cy
 odtwarzanie plików MIDI poprzez kartê d¼wiêkow±.
 
-%description -l tr X11
+%description X11 -l tr
 MIDI ses dosyalarýný çalan playmidi uygulamasýnýn X arayüzü.
 
 %package svga
@@ -92,7 +92,7 @@ Instrument Digital Interface) sound files through a sound card
 synthesizer. Install playmidi-svga if you want to use an SVGAlib
 interface to play MIDI sound files using your computer's sound card.
 
-%description -l pl svga
+%description svga -l pl
 Playmidi-svga dostarcza interfejs oparty o SVGAlib umo¿liwiaj±cy
 odtwarzanie plików MIDI poprzez kartê d¼wiêkow±.
 
