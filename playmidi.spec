@@ -137,14 +137,13 @@ install splaymidi $RPM_BUILD_ROOT%{_bindir}
 install playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
 echo ".so playmidi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/splaymidi.1
 
-gzip -9nf BUGS QuickStart
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc BUGS QuickStart
 %attr(755,root,root) %{_bindir}/playmidi
 %dir %{_sysconfdir}
 %config %{_sysconfdir}/std.o3
