@@ -8,6 +8,7 @@ Version:	2.4
 Release:	10
 License:	GPL
 Group:		Applications/Sound
+Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D¼wiêk
 Source0:	ftp://ftp.linpeople.org/pub/People/nathan/%{name}-%{version}.tar.gz
 Patch0:		%{name}-hertz.patch
@@ -22,6 +23,7 @@ BuildRequires:	svgalib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/midi
+%define		_xbindir	/usr/X11R6/bin
 
 %description
 Playmidi plays MIDI (Musicial Instrument Digital Interface) sound
@@ -54,6 +56,7 @@ Summary(de):	X-Windows-Schnittstelle für den MIDI-Soundplayer
 Summary(pl):	Odtwarzacz plików MIDI dla systemu X Window
 Summary(tr):	MIDI ses çalýcý için X arayüzü
 Group:		X11/Applications/Multimedia
+Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 Requires:	%{name} = %{version}
 
@@ -84,6 +87,7 @@ MIDI ses dosyalarýný çalan playmidi uygulamasýnýn X arayüzü.
 Summary:	An SVGAlib based MIDI sound file player
 Summary(pl):	Odtwarzacz plików MIDI wykorzystuj±cy SVGAlib
 Group:		Applications/Sound
+Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D¼wiêk
 Requires:	%{name} = %{version}
 
@@ -110,11 +114,11 @@ rm -f awe_voice.h
 #PATH=.:$PATH
 
 %ifarch %ix86
-%{__make} OPT_FLAGS="$RPM_OPT_FLAGS" playmidi splaymidi xplaymidi <<EOF
+%{__make} OPT_FLAGS="%{rpmcflags}" playmidi splaymidi xplaymidi <<EOF
 2
 EOF
 %else
-%{__make} OPT_FLAGS="$RPM_OPT_FLAGS" playmidi xplaymidi <<EOF
+%{__make} OPT_FLAGS="%{rpmcflags}" playmidi xplaymidi <<EOF
 2
 EOF
 %endif
@@ -122,23 +126,22 @@ EOF
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1} \
-$RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/{bin,lib/X11/app-defaults}}
+	$RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/{bin,lib/X11/app-defaults}}
 
-install -s playmidi $RPM_BUILD_ROOT%{_bindir}
-install -s xplaymidi $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
+install playmidi $RPM_BUILD_ROOT%{_bindir}
+install xplaymidi $RPM_BUILD_ROOT%{_xbindir}
 install XPlaymidi.ad $RPM_BUILD_ROOT%{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
 
 %ifarch %ix86
-install -s splaymidi $RPM_BUILD_ROOT%{_bindir}
+install splaymidi $RPM_BUILD_ROOT%{_bindir}
 %endif
 
 install playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
 echo ".so playmidi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/splaymidi.1
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/*\
-	BUGS QuickStart
+gzip -9nf BUGS QuickStart
 
-install -d $RPM_BUILD_ROOT%{_sysconfdir}
+install $RPM_BUILD_ROOT%{_sysconfdir}
 install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
@@ -158,13 +161,11 @@ rm -rf $RPM_BUILD_ROOT
 %files X11
 %defattr(644,root,root,755)
 %config %{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
-%attr(755,root,root) %{_prefix}/X11R6/bin/xplaymidi
+%attr(755,root,root) %{_xbindir}/xplaymidi
 
 %ifarch %ix86
-
 %files svga
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/splaymidi
 %{_mandir}/man1/splaymidi.1*
-
 %endif
