@@ -5,7 +5,7 @@ Summary(pl):	Odtwarzacz plików MIDI
 Summary(tr):	FM, GUS ve MIDI aygýtlarý üzerindeki midi dosyalarýný çalar
 Name:		playmidi
 Version:	2.4
-Release:	9
+Release:	10
 License:	GPL
 Group:		Applications/Sound
 Source0:	ftp://ftp.linpeople.org/pub/People/nathan/%{name}-%{version}.tar.gz
