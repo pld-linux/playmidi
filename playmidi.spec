@@ -132,12 +132,13 @@ install -s splaymidi $RPM_BUILD_ROOT%{_bindir}
 %endif
 
 install playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
+echo ".so playmidi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/splaymidi.1
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/*\
 	BUGS QuickStart
 
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
-install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}/midi
+install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -146,12 +147,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/playmidi
-%dir %{_sysconfdir}/midi
-%config %{_sysconfdir}/midi/std.o3
-%config %{_sysconfdir}/midi/std.sb
-%config %{_sysconfdir}/midi/drums.o3
-%config %{_sysconfdir}/midi/drums.sb
-%{_mandir}/man1/playmidi.1.gz
+%dir %{_sysconfdir}
+%config %{_sysconfdir}/std.o3
+%config %{_sysconfdir}/std.sb
+%config %{_sysconfdir}/drums.o3
+%config %{_sysconfdir}/drums.sb
+%{_mandir}/man1/*
 
 %files X11
 %defattr(644,root,root,755)
