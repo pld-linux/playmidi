@@ -8,11 +8,12 @@ Version:	2.4
 Release:	10
 License:	GPL
 Group:		Applications/Sound
+Group(pl):	Aplikacje/D¼wiêk
 Source0:	ftp://ftp.linpeople.org/pub/People/nathan/%{name}-%{version}.tar.gz
-Patch0:		playmidi-hertz.patch
-Patch1:		playmidi-make.patch
-Patch2:		playmidi-midimap.patch
-Patch3:		playmidi-glibconfig.patch
+Patch0:		%{name}-hertz.patch
+Patch1:		%{name}-make.patch
+Patch2:		%{name}-midimap.patch
+Patch3:		%{name}-glibconfig.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gtk+-devel
 %ifarch %ix86
@@ -83,6 +84,7 @@ MIDI ses dosyalarýný çalan playmidi uygulamasýnýn X arayüzü.
 Summary:	An SVGAlib based MIDI sound file player
 Summary(pl):	Odtwarzacz plików MIDI wykorzystuj±cy SVGAlib
 Group:		Applications/Sound
+Group(pl):	Aplikacje/D¼wiêk
 Requires:	%{name} = %{version}
 
 %description svga
@@ -98,7 +100,7 @@ odtwarzanie plików MIDI poprzez kartê d¼wiêkow±.
 %prep
 %setup -q
 # awe_voice.h is now part of the kernel source.
-rm awe_voice.h
+rm -f awe_voice.h
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
