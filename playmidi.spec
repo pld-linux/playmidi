@@ -20,7 +20,7 @@ BuildRequires:	gtk+-devel
 %ifarch %ix86
 BuildRequires:	svgalib-devel
 %endif
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/midi
 
