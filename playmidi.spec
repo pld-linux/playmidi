@@ -16,8 +16,9 @@ Patch2:		playmidi-midimap.patch
 Patch3:		playmidi-glibconfig.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	XFree86-devel
+BuildRequires:	gtk+-devel
 %ifarch %ix86
-BuildRequires:	svgalib
+BuildRequires:	svgalib-devel
 %endif
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -109,11 +110,11 @@ rm awe_voice.h
 #PATH=.:$PATH
 
 %ifarch %ix86
-make playmidi splaymidi xplaymidi <<EOF
+make OPT_FLAGS="$RPM_OPT_FLAGS" playmidi splaymidi xplaymidi <<EOF
 2
 EOF
 %else
-make playmidi xplaymidi <<EOF
+make OPT_FLAGS="$RPM_OPT_FLAGS" playmidi xplaymidi <<EOF
 2
 EOF
 %endif
