@@ -23,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/midi
 %define		_xbindir	/usr/X11R6/bin
-%define		_appdefdir	/usr/X11R6/lib/X11/app-defaults
+%define		_appdefsdir	/usr/X11R6/lib/X11/app-defaults
 
 %description
 Playmidi plays MIDI (Musicial Instrument Digital Interface) sound
@@ -122,11 +122,11 @@ EOF
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT{%{_bindir},%{_xbindir},%{_appdefdir}}
+	$RPM_BUILD_ROOT{%{_bindir},%{_xbindir},%{_appdefsdir}}
 
 install playmidi $RPM_BUILD_ROOT%{_bindir}
 install xplaymidi $RPM_BUILD_ROOT%{_xbindir}
-install XPlaymidi.ad $RPM_BUILD_ROOT%{_appdefdir}/XPlaymidi
+install XPlaymidi.ad $RPM_BUILD_ROOT%{_appdefsdir}/XPlaymidi
 install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
 
 %ifarch %{ix86} alpha
@@ -153,7 +153,7 @@ rm -rf $RPM_BUILD_ROOT
 %files X11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_xbindir}/xplaymidi
-%config %{_appdefdir}/XPlaymidi
+%config %{_appdefsdir}/XPlaymidi
 
 %ifarch %{ix86} alpha
 %files svga
