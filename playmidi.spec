@@ -134,7 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__install} xplaymidi $RPM_BUILD_ROOT%{_xbindir}
 %{__install} XPlaymidi.ad $RPM_BUILD_ROOT%{_prefix}/X11R6/lib/X11/app-defaults/XPlaymidi
 %{__install} std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
-%{__install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+%{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 %ifarch %ix86
 %{__install} splaymidi $RPM_BUILD_ROOT%{_bindir}
