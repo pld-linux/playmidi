@@ -14,15 +14,16 @@ Summary(fr):	Joue des fichiers midi sur des périphériques FM, GUS et MIDI
 Summary(pl):	Odtwarzacz plików MIDI
 Summary(tr):	FM, GUS ve MIDI aygýtlarý üzerindeki midi dosyalarýný çalar
 Name:		playmidi
-Version:	2.4
+Version:	2.5
 Release:	13
 License:	GPL
 Group:		Applications/Sound
-Source0:	ftp://ftp.linpeople.org/pub/People/nathan/%{name}-%{version}.tar.gz
-# Source0-md5: ce27bfbc4e122f103bf3d2fe8d253011
+Source0:	http://dl.sourceforge.net/playmidi/%{name}-%{version}.tar.gz
+# Source0-md5:	ce27bfbc4e122f103bf3d2fe8d253011
 Patch0:		%{name}-hertz.patch
 Patch1:		%{name}-make.patch
 Patch2:		%{name}-midimap.patch
+URL:		http://sourceforge.net/projects/playmidi/
 BuildRequires:	glib-devel >= 1.2
 %{?with_gtk:BuildRequires:	gtk+-devel >= 1.2}
 BuildRequires:	ncurses-devel >= 5.0
@@ -132,7 +133,7 @@ playmidi-svga dostarcza interfejs oparty o SVGAlib umo¿liwiaj±cy
 odtwarzanie plików MIDI poprzez kartê d¼wiêkow±.
 
 %prep
-%setup -q
+%setup -q -n playmidi-2.4
 # awe_voice.h is now part of the kernel source.
 rm -f awe_voice.h
 %patch0 -p1
@@ -142,7 +143,7 @@ rm -f awe_voice.h
 %build
 %{__make} playmidi xplaymidi %{?with_gtk:gtkplaymidi} %{?with_svga:splaymidi} \
 	CC="%{__cc}" \
-	LIBX11="-L/usr/X11R6/%{_lib} -lXaw -lXmu -lXt -lX11 -lXext -lSM -lICE" \
+LIBX11="-L%{_prefix}/X11R6/%{_lib} -lXaw -lXmu -lXt -lX11 -lXext -lSM -lICE" \
 	%{?with_gtk:LIBGTK="`gtk-config --libs`"} \
 	OPT_FLAGS="%{rpmcflags} %{?with_gtk:`gtk-config --cflags`}" \
 	<<EOF
