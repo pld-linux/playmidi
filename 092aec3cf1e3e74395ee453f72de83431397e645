@@ -1,0 +1,15 @@
+- Removed 'awe_voice.h' from list of sources. Newer version of this
+  file is currently incl
+- Removed 'awe_voice.h' from list of sources. Newer version of this
+  file is currently included in kernel sources.
+- Added removal of 'awe_voice.h' included in *.tar.gz in %prep
+  section.
+- Removed 'playmidi-2.3-awe2.patch', beacuse it is no longer needed
+  (see above for reason).
+- Moved 'splaymidi' (SVGAlib version) to separate package.
+- Replaced 'i386' with '%%ix86'.
+- Manuals moved to '%%_mandir'.
+- Gzipped documentation and manuals.
+- Default attributes set to (644, root, root, 755).
+- Added polish 'Summary', 'Group' and 'Description'.
+- release++
