@@ -14,15 +14,14 @@ Patch0:		%{name}-hertz.patch
 Patch1:		%{name}-make.patch
 Patch2:		%{name}-midimap.patch
 Patch3:		%{name}-glibconfig.patch
-BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gtk+-devel
+BuildRequires:	ncurses-devel >= 5.0
 %ifarch %{ix86} alpha
 BuildRequires:	svgalib-devel
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/midi
-%define		_xbindir	/usr/X11R6/bin
 %define		_appdefsdir	/usr/X11R6/lib/X11/app-defaults
 
 %description
@@ -107,34 +106,27 @@ rm -f awe_voice.h
 %patch3 -p1
 
 %build
-#PATH=.:$PATH
-
+%{__make} playmidi xplaymidi \
 %ifarch %{ix86} alpha
-%{__make} OPT_FLAGS="%{rpmcflags}" playmidi splaymidi xplaymidi <<EOF
-2
-EOF
-%else
-%{__make} OPT_FLAGS="%{rpmcflags}" playmidi xplaymidi <<EOF
-2
-EOF
+	splaymidi \
 %endif
+	OPT_FLAGS="%{rpmcflags}" <<EOF
+2
+EOF
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT{%{_bindir},%{_xbindir},%{_appdefsdir}}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_mandir}/man1,%{_bindir},%{_appdefsdir}}
 
-install playmidi $RPM_BUILD_ROOT%{_bindir}
-install xplaymidi $RPM_BUILD_ROOT%{_xbindir}
+install playmidi xplaymidi $RPM_BUILD_ROOT%{_bindir}
 install XPlaymidi.ad $RPM_BUILD_ROOT%{_appdefsdir}/XPlaymidi
 install std.o3 drums.o3 std.sb drums.sb $RPM_BUILD_ROOT%{_sysconfdir}
+install playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %ifarch %{ix86} alpha
 install splaymidi $RPM_BUILD_ROOT%{_bindir}
+echo '.so playmidi.1' > $RPM_BUILD_ROOT%{_mandir}/man1/splaymidi.1
 %endif
-
-install playmidi.1 $RPM_BUILD_ROOT%{_mandir}/man1
-echo ".so playmidi.1" > $RPM_BUILD_ROOT%{_mandir}/man1/splaymidi.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -144,16 +136,16 @@ rm -rf $RPM_BUILD_ROOT
 %doc BUGS QuickStart
 %attr(755,root,root) %{_bindir}/playmidi
 %dir %{_sysconfdir}
-%config %{_sysconfdir}/std.o3
-%config %{_sysconfdir}/std.sb
-%config %{_sysconfdir}/drums.o3
-%config %{_sysconfdir}/drums.sb
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/std.o3
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/std.sb
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/drums.o3
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/drums.sb
 %{_mandir}/man1/playmidi.1*
 
 %files X11
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_xbindir}/xplaymidi
-%config %{_appdefsdir}/XPlaymidi
+%attr(755,root,root) %{_bindir}/xplaymidi
+%{_appdefsdir}/XPlaymidi
 
 %ifarch %{ix86} alpha
 %files svga
