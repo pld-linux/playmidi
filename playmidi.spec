@@ -50,7 +50,7 @@ Bir ses kartýnýn ses birleþtiricisi aracýlýðýyla MIDI ses dosyalarýný
 içerir.
 
 %package X11
-Summary:	An X Window System based MIDI sound file player.
+Summary:	An X Window System based MIDI sound file player
 Summary(de):	X-Windows-Schnittstelle für den MIDI-Soundplayer
 Summary(pl):	Odtwarzacz plików MIDI dla systemu X Window
 Summary(tr):	MIDI ses çalýcý için X arayüzü
