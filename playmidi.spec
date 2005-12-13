@@ -130,7 +130,7 @@ playmidi-svga dostarcza interfejs oparty o SVGAlib umo¿liwiaj±cy
 odtwarzanie plików MIDI poprzez kartê d¼wiêkow±.
 
 %prep
-%setup -q -n playmidi-2.4
+%setup -q -n %{name}-2.4
 # awe_voice.h is now part of the kernel source.
 rm -f awe_voice.h
 %patch0 -p1
@@ -175,10 +175,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc BUGS QuickStart
 %attr(755,root,root) %{_bindir}/playmidi
 %dir %{_sysconfdir}
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/std.o3
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/std.sb
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/drums.o3
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/drums.sb
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/std.o3
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/std.sb
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/drums.o3
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/drums.sb
 %{_mandir}/man1/playmidi.1*
 
 %files X11
