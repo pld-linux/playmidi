@@ -6,10 +6,10 @@
 %bcond_without	svga	# don't build splaymidi program
 #
 Summary:	A MIDI sound file player
-Summary(de):	Zum Abspielen von midi-Dateien auf FM-, GUS- und MIDI-Geräten
-Summary(fr):	Joue des fichiers midi sur des périphériques FM, GUS et MIDI
-Summary(pl):	Odtwarzacz plików MIDI
-Summary(tr):	FM, GUS ve MIDI aygýtlarý üzerindeki midi dosyalarýný çalar
+Summary(de.UTF-8):   Zum Abspielen von midi-Dateien auf FM-, GUS- und MIDI-GerÃ¤ten
+Summary(fr.UTF-8):   Joue des fichiers midi sur des pÃ©riphÃ©riques FM, GUS et MIDI
+Summary(pl.UTF-8):   Odtwarzacz plikÃ³w MIDI
+Summary(tr.UTF-8):   FM, GUS ve MIDI aygÄ±tlarÄ± Ã¼zerindeki midi dosyalarÄ±nÄ± Ã§alar
 Name:		playmidi
 Version:	2.5
 Release:	1
@@ -36,30 +36,30 @@ files through a sound card synthesizer. This package includes basic
 drum samples for use with simple FM synthesizers. Install playmidi if
 you want to play MIDI files using your computer's sound card.
 
-%description -l de
-Spielt MIDI-Sounddateien über einen Soundkarten-Synthesizer ab.
-Enthält einfache Schlagzeug-Samples für einfache FM-Synthesizer.
+%description -l de.UTF-8
+Spielt MIDI-Sounddateien Ã¼ber einen Soundkarten-Synthesizer ab.
+EnthÃ¤lt einfache Schlagzeug-Samples fÃ¼r einfache FM-Synthesizer.
 
-%description -l fr
-Programme X pour jouer des fichiers MIDI par le synthétiseur d'une
+%description -l fr.UTF-8
+Programme X pour jouer des fichiers MIDI par le synthÃ©tiseur d'une
 carte son. Il contient des exemples de batterie de base pour les
-synthétiseurs FM simples.
+synthÃ©tiseurs FM simples.
 
-%description -l pl
-Playmidi odtwarza pliki MIDI poprzez syntetyzer karty d¼wiêkowej.
+%description -l pl.UTF-8
+Playmidi odtwarza pliki MIDI poprzez syntetyzer karty dÅºwiÄ™kowej.
 Pakiet zawiera podstawowe instrumenty perkusyjne do wykorzystania z
 prostymi syntetyzerami FM.
 
-%description -l tr
-Bir ses kartýnýn ses birleþtiricisi aracýlýðýyla MIDI ses dosyalarýný
-çalar. FM ses birleþtirici ile kullaným için ana davul sesi örneklerý
-içerir.
+%description -l tr.UTF-8
+Bir ses kartÄ±nÄ±n ses birleÅŸtiricisi aracÄ±lÄ±ÄŸÄ±yla MIDI ses dosyalarÄ±nÄ±
+Ã§alar. FM ses birleÅŸtirici ile kullanÄ±m iÃ§in ana davul sesi Ã¶rneklerÄ±
+iÃ§erir.
 
 %package X11
 Summary:	An X Window System based MIDI sound file player
-Summary(de):	X-Window-Schnittstelle für den MIDI-Soundplayer
-Summary(pl):	Odtwarzacz plików MIDI dla systemu X Window
-Summary(tr):	MIDI ses çalýcý için X arayüzü
+Summary(de.UTF-8):   X-Window-Schnittstelle fÃ¼r den MIDI-Soundplayer
+Summary(pl.UTF-8):   Odtwarzacz plikÃ³w MIDI dla systemu X Window
+Summary(tr.UTF-8):   MIDI ses Ã§alÄ±cÄ± iÃ§in X arayÃ¼zÃ¼
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
@@ -69,27 +69,27 @@ playmidi-X11 provides an X Window System interface for playing MIDI
 card synthesizer. Install playmidi-X11 if you want to use an X
 interface to play MIDI sound files using your computer's sound card.
 
-%description X11 -l de
-X-Programm zum Abspielen von MIDI-Sounddateien über einen Soundkarten-
-Synthesizer. Enthält einfache Schlagzeug-Samples für einfache
+%description X11 -l de.UTF-8
+X-Programm zum Abspielen von MIDI-Sounddateien Ã¼ber einen Soundkarten-
+Synthesizer. EnthÃ¤lt einfache Schlagzeug-Samples fÃ¼r einfache
 FM-Synthesizers.
 
-%description X11 -l fr
-Programme X pour jouer des fichiers MIDI par le synthétiseur d'une
+%description X11 -l fr.UTF-8
+Programme X pour jouer des fichiers MIDI par le synthÃ©tiseur d'une
 carte son. Il contient des exemples de batterie de base pour les
-synthétiseurs FM simples.
+synthÃ©tiseurs FM simples.
 
-%description X11 -l pl
+%description X11 -l pl.UTF-8
 playmidi-X11 dostarcza oparty o X Window System interfejs
-umo¿liwiaj±cy odtwarzanie plików MIDI poprzez kartê d¼wiêkow±.
+umoÅ¼liwiajÄ…cy odtwarzanie plikÃ³w MIDI poprzez kartÄ™ dÅºwiÄ™kowÄ….
 
-%description X11 -l tr
-MIDI ses dosyalarýný çalan playmidi uygulamasýnýn X arayüzü.
+%description X11 -l tr.UTF-8
+MIDI ses dosyalarÄ±nÄ± Ã§alan playmidi uygulamasÄ±nÄ±n X arayÃ¼zÃ¼.
 
 %package gtk
 Summary:	An GTK+ based MIDI sound file player
-Summary(de):	GTK+-Schnittstelle für den MIDI-Soundplayer
-Summary(pl):	Odtwarzacz plików MIDI oparty na GTK+
+Summary(de.UTF-8):   GTK+-Schnittstelle fÃ¼r den MIDI-Soundplayer
+Summary(pl.UTF-8):   Odtwarzacz plikÃ³w MIDI oparty na GTK+
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
@@ -99,23 +99,23 @@ playmidi-gtk provides an GTK+-based interface for playing MIDI
 card synthesizer. Install playmidi-X11 if you want to use an X
 interface to play MIDI sound files using your computer's sound card.
 
-%description gtk -l de
-GTK+-Programm zum Abspielen von MIDI-Sounddateien über einen
-Soundkarten-Synthesizer. Enthält einfache Schlagzeug-Samples für
+%description gtk -l de.UTF-8
+GTK+-Programm zum Abspielen von MIDI-Sounddateien Ã¼ber einen
+Soundkarten-Synthesizer. EnthÃ¤lt einfache Schlagzeug-Samples fÃ¼r
 einfache FM-Synthesizers.
 
-%description gtk -l fr
-Programme GTK+ pour jouer des fichiers MIDI par le synthétiseur d'une
+%description gtk -l fr.UTF-8
+Programme GTK+ pour jouer des fichiers MIDI par le synthÃ©tiseur d'une
 carte son. Il contient des exemples de batterie de base pour les
-synthétiseurs FM simples.
+synthÃ©tiseurs FM simples.
 
-%description gtk -l pl
-playmidi-GTK+ dostarcza oparty na GTK+ interfejs umo¿liwiaj±cy
-odtwarzanie plików MIDI poprzez kartê d¼wiêkow±.
+%description gtk -l pl.UTF-8
+playmidi-GTK+ dostarcza oparty na GTK+ interfejs umoÅ¼liwiajÄ…cy
+odtwarzanie plikÃ³w MIDI poprzez kartÄ™ dÅºwiÄ™kowÄ….
 
 %package svga
 Summary:	An SVGAlib based MIDI sound file player
-Summary(pl):	Odtwarzacz plików MIDI wykorzystuj±cy SVGAlib
+Summary(pl.UTF-8):   Odtwarzacz plikÃ³w MIDI wykorzystujÄ…cy SVGAlib
 Group:		Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
@@ -125,9 +125,9 @@ Instrument Digital Interface) sound files through a sound card
 synthesizer. Install playmidi-svga if you want to use an SVGAlib
 interface to play MIDI sound files using your computer's sound card.
 
-%description svga -l pl
-playmidi-svga dostarcza interfejs oparty o SVGAlib umo¿liwiaj±cy
-odtwarzanie plików MIDI poprzez kartê d¼wiêkow±.
+%description svga -l pl.UTF-8
+playmidi-svga dostarcza interfejs oparty o SVGAlib umoÅ¼liwiajÄ…cy
+odtwarzanie plikÃ³w MIDI poprzez kartÄ™ dÅºwiÄ™kowÄ….
 
 %prep
 %setup -q -n %{name}-2.4
