@@ -6,10 +6,10 @@
 %bcond_without	svga	# don't build splaymidi program
 #
 Summary:	A MIDI sound file player
-Summary(de.UTF-8):   Zum Abspielen von midi-Dateien auf FM-, GUS- und MIDI-Geräten
-Summary(fr.UTF-8):   Joue des fichiers midi sur des périphériques FM, GUS et MIDI
-Summary(pl.UTF-8):   Odtwarzacz plików MIDI
-Summary(tr.UTF-8):   FM, GUS ve MIDI aygıtları üzerindeki midi dosyalarını çalar
+Summary(de.UTF-8):	Zum Abspielen von midi-Dateien auf FM-, GUS- und MIDI-Geräten
+Summary(fr.UTF-8):	Joue des fichiers midi sur des périphériques FM, GUS et MIDI
+Summary(pl.UTF-8):	Odtwarzacz plików MIDI
+Summary(tr.UTF-8):	FM, GUS ve MIDI aygıtları üzerindeki midi dosyalarını çalar
 Name:		playmidi
 Version:	2.5
 Release:	1
@@ -57,9 +57,9 @@ içerir.
 
 %package X11
 Summary:	An X Window System based MIDI sound file player
-Summary(de.UTF-8):   X-Window-Schnittstelle für den MIDI-Soundplayer
-Summary(pl.UTF-8):   Odtwarzacz plików MIDI dla systemu X Window
-Summary(tr.UTF-8):   MIDI ses çalıcı için X arayüzü
+Summary(de.UTF-8):	X-Window-Schnittstelle für den MIDI-Soundplayer
+Summary(pl.UTF-8):	Odtwarzacz plików MIDI dla systemu X Window
+Summary(tr.UTF-8):	MIDI ses çalıcı için X arayüzü
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
@@ -88,8 +88,8 @@ MIDI ses dosyalarını çalan playmidi uygulamasının X arayüzü.
 
 %package gtk
 Summary:	An GTK+ based MIDI sound file player
-Summary(de.UTF-8):   GTK+-Schnittstelle für den MIDI-Soundplayer
-Summary(pl.UTF-8):   Odtwarzacz plików MIDI oparty na GTK+
+Summary(de.UTF-8):	GTK+-Schnittstelle für den MIDI-Soundplayer
+Summary(pl.UTF-8):	Odtwarzacz plików MIDI oparty na GTK+
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
@@ -115,7 +115,7 @@ odtwarzanie plików MIDI poprzez kartę dźwiękową.
 
 %package svga
 Summary:	An SVGAlib based MIDI sound file player
-Summary(pl.UTF-8):   Odtwarzacz plików MIDI wykorzystujący SVGAlib
+Summary(pl.UTF-8):	Odtwarzacz plików MIDI wykorzystujący SVGAlib
 Group:		Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
