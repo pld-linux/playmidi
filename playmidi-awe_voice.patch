@@ -1,0 +1,15 @@
+--- playmidi-2.4/playmidi.h-dist.orig	2010-12-15 08:39:42.880937000 +0100
++++ playmidi-2.4/playmidi.h-dist	2010-12-15 08:40:01.850937000 +0100
+@@ -52,11 +52,7 @@
+ #include <stdlib.h>
+ #include <sys/soundcard.h>
+ #include <sys/ioctl.h>
+-#ifdef linux
+-#include <linux/awe_voice.h>
+-#else
+-#include <awe_voice.h>
+-#endif
++#include "awe_voice.h"
+ 
+ struct chanstate {
+     int program;

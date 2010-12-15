@@ -12,7 +12,7 @@ Summary(pl.UTF-8):	Odtwarzacz plików MIDI
 Summary(tr.UTF-8):	FM, GUS ve MIDI aygıtları üzerindeki midi dosyalarını çalar
 Name:		playmidi
 Version:	2.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/playmidi/%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ Source0:	http://dl.sourceforge.net/playmidi/%{name}-%{version}.tar.gz
 Patch0:		%{name}-hertz.patch
 Patch1:		%{name}-make.patch
 Patch2:		%{name}-midimap.patch
+Patch3:		%{name}-awe_voice.patch
 URL:		http://sourceforge.net/projects/playmidi/
 BuildRequires:	glib-devel >= 1.2
 %{?with_gtk:BuildRequires:	gtk+-devel >= 1.2}
@@ -28,7 +29,7 @@ BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/midi
-%define		_appdefsdir	/usr/X11R6/lib/X11/app-defaults
+%define		_appdefsdir	/usr/share/X11/app-defaults
 
 %description
 Playmidi plays MIDI (Musicial Instrument Digital Interface) sound
@@ -131,16 +132,16 @@ odtwarzanie plików MIDI poprzez kartę dźwiękową.
 
 %prep
 %setup -q -n %{name}-2.4
-# awe_voice.h is now part of the kernel source.
-rm -f awe_voice.h
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__make} playmidi xplaymidi %{?with_gtk:gtkplaymidi} %{?with_svga:splaymidi} \
 	CC="%{__cc}" \
-LIBX11="-L%{_prefix}/X11R6/%{_lib} -lXaw -lXmu -lXt -lX11 -lXext -lSM -lICE" \
+	-I"$RPM_BUILD_ROOT" \
+LIBX11="-L%{_prefix}/%{_lib} -lXaw -lXmu -lXt -lX11 -lXext -lSM -lICE" \
 	%{?with_gtk:LIBGTK="`gtk-config --libs`"} \
 	OPT_FLAGS="%{rpmcflags} %{?with_gtk:`gtk-config --cflags`}" \
 	<<EOF
